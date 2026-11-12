@@ -1,6 +1,6 @@
 // Service Worker: Offline-Nutzung + Push-Erinnerungen.
-// Bei größeren Änderungen die Versionsnummer erhöhen (v2 -> v3).
-const CACHE = 'fit45-next-v2';
+// Bei größeren Änderungen die Versionsnummer erhöhen (v3 -> v4).
+const CACHE = 'fit45-next-v3';
 // Beim lokalen Testen (localhost / WLAN-IP) nichts zwischenspeichern
 const LOCAL = /^(localhost|127\.0\.0\.1|\d+\.\d+\.\d+\.\d+)$/.test(self.location.hostname);
 

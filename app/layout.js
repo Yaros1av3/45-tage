@@ -1,19 +1,21 @@
 import './globals.css';
-import { Cormorant_Garamond, Jost } from 'next/font/google';
+import { Bricolage_Grotesque, Figtree } from 'next/font/google';
 
-// Elegante Serifenschrift für Überschriften und Zahlen, ruhige Schrift für den Text
-const serif = Cormorant_Garamond({
+// Überschriften und Zahlen: Bricolage Grotesque (modern, mit Charakter)
+// Fließtext: Figtree (freundlich und gut lesbar)
+const display = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-serif',
+  variable: '--font-display',
   display: 'swap',
 });
-const sans = Jost({
+const sans = Figtree({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 });
+
+// Setzt das gespeicherte Farbthema, bevor die Seite sichtbar wird (kein Aufblitzen)
+const themeScript = `try{var t=JSON.parse(localStorage.getItem('fit45.v1')||'{}').theme;if(t)document.documentElement.dataset.theme=t}catch(e){}`;
 
 export const metadata = {
   title: 'Mein 45-Tage-Weg',
@@ -29,15 +31,16 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f6efe6' },
-    { media: '(prefers-color-scheme: dark)', color: '#1f1814' },
-  ],
+  // Startfarbe (Pfirsich); die App passt sie je nach gewähltem Thema an
+  themeColor: '#fff6f0',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="de" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="de" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>{children}</body>
     </html>
   );
