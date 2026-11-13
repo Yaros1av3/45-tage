@@ -618,3 +618,25 @@ h1,h2,h3,p{margin:0}
 @keyframes spinx{from{transform:translateX(-50%) rotate(0)}to{transform:translateX(-50%) rotate(360deg)}}
 .bubble.cur{box-shadow:0 0 0 0 color-mix(in srgb,var(--pc) 55%,transparent)}
 .medal.got{box-shadow:0 8px 18px -12px var(--accent)}
+
+/* ---------- Stimmung & Tagebuch ---------- */
+.mood-card h3{margin-bottom:12px}
+.moods{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:12px}
+.mood-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 2px 8px;border-radius:16px;border:1.5px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;transition:transform .15s,background .2s,border-color .2s,color .2s}
+.mood-btn .ic{width:28px;height:28px}
+.mood-btn:active{transform:scale(.94)}
+.mood-btn.on{color:var(--mc);border-color:var(--mc);background:color-mix(in srgb,var(--mc) 14%,transparent)}
+.mood-btn.on .ic{animation:moodpop .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes moodpop{0%{transform:scale(.7)}100%{transform:scale(1)}}
+.mood-strip{display:flex;align-items:flex-end;gap:5px;height:56px;margin:4px 0 14px}
+.mood-strip i{flex:1;min-width:6px;border-radius:6px 6px 3px 3px;background:var(--mc);opacity:.85}
+.diary-list{display:flex;flex-direction:column;gap:2px}
+.diary-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 4px;border:0;border-bottom:1px solid var(--line);background:none;color:inherit;font:inherit;cursor:pointer}
+.diary-row:last-child{border-bottom:0}
+.dm{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--mc);background:color-mix(in srgb,var(--mc) 15%,transparent)}
+.dm .ic{width:24px;height:24px}
+.dtext{display:flex;flex-direction:column;gap:2px;min-width:0}
+.dtext b{font-size:14px}
+.dtext span{font-size:13.5px;color:var(--muted);overflow-wrap:anywhere}
+.diary .link{margin-top:10px}
+@media (prefers-reduced-motion:reduce){.mood-btn.on .ic{animation:none}}
